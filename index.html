@@ -6,24 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desenhando no Canvas</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <!-- Font Icons -->
+    <script src="https://kit.fontawesome.com/78ae205c21.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Desenhando no Canvas</h1>
-
-    <canvas id="tela" width="800" height="400"></canvas>
-
-    <div class="colorArea">
-        <div data-color="black" style="background-color: black" class="color active"></div>
-        <div data-color="blue" style="background-color: blue" class="color"></div>
-        <div data-color="red" style="background-color: red" class="color"></div>
-        <div data-color="green" style="background-color: green" class="color"></div>
-        <div data-color="yellow" style="background-color: yellow" class="color"></div>
-        <div data-color="gray" style="background-color: gray" class="color"></div>
-    </div>
-
-    <button class="clear">Limpar Quadro</button>
-
-    <footer>Criado pela B7Web - Modificado por Lucas Martins</footer>
+    <header class="header">
+        .
+    </header>
+    <section class="body">
+        <div class="canvas">
+            <canvas id="tela" width="800" height="600"></canvas>
+            <!-- <button class="clear">Limpar Quadro</button> -->
+        </div>
+        <aside class="tools">
+            <h5>Cores</h5>
+            <div class="colorArea">
+                <div data-color="#000000" style="background-color: #000000" class="color active"></div>
+                <div data-color="#808080" style="background-color: #808080" class="color"></div>
+                <div data-color="#191970" style="background-color: #191970" class="color"></div>
+                <div data-color="#0000FF" style="background-color: #0000FF" class="color"></div>
+                <div data-color="#00BFFF" style="background-color: #00BFFF" class="color"></div>
+                <div data-color="#008000" style="background-color: #008000" class="color"></div>
+                <div data-color="#00FF00" style="background-color: #00FF00" class="color"></div>
+                <div data-color="#800000" style="background-color: #800000" class="color"></div>
+                <div data-color="#FF0000" style="background-color: #FF0000" class="color"></div>
+                <div data-color="#FF4500" style="background-color: #FF4500" class="color"></div>
+                <div data-color="#FFD700" style="background-color: #FFD700" class="color"></div>
+                <div data-color="#FFFF00" style="background-color: #FFFF00" class="color"></div>
+            </div>
+            <h5>Ferramentas</h5>
+            <div class="colorArea toolOptions">
+                <div class="tool pencil active">
+                    <i class="fa-solid fa-pencil"></i>
+                    <span aria-for="label">Desenhar</span>
+                </div>
+                <div class="tool eraser">
+                    <i class="fa-solid fa-eraser"></i>
+                    <span aria-for="label">Borracha</span>
+                </div>
+                <div class="tool clear">
+                    <i class="fa-regular fa-note-sticky"></i>
+                    <span aria-for="label">Limpar Quadro</span>
+                </div>
+            </div>
+            <h5>Ajustes</h5>
+            <div class="colorArea">
+                <div class="tool resize">
+                    <i class="fa-solid fa-gear"></i>
+                    <span aria-for="label">Reajustar Tamanho</span>
+                </div>
+            </div>
+                
+        </aside>
+        <!-- <i class="fa-solid fa-palette"></i> -->
+    </section>
+    <!-- <footer>Criado pela B7Web - Modificado por Lucas Martins</footer> -->
 
     <script src="script.js"></script>
 </body>
