@@ -20,9 +20,12 @@ document.querySelector('.tool.resize').addEventListener('click', () => {
     location.reload();
 });
 screen.addEventListener('mousedown', mouseDownEvent);
+screen.addEventListener('touchstart', touchStart); //evento de toque de tela (mobile)
 screen.addEventListener('mousemove', mouseMoveEvent);
+screen.addEventListener('touchmove', touchMove);
 screen.addEventListener('mouseup', mouseUpEvent);
-document.querySelector('.tool.eraser').addEventListener('click', ()=>{
+screen.addEventListener('touchend', touchEnd);
+document.querySelector('.tool.eraser').addEventListener('click', () => {
     canEraser = true;
     currentColor = '';
     screen.style.cursor = 'url("eraser-solid.svg"), auto';
@@ -66,18 +69,38 @@ function mouseDownEvent(e) {
         mouseY = e.pageY - screen.offsetTop;
     }
 }
+// Eventos de toque
+function touchStart(e) {
+    e.preventDefault();
+    canDraw = true;
+    let touch = e.touches[0];
+    mouseX = touch.clientX - screen.offsetLeft;
+    mouseY = touch.clientY - screen.offsetTop;
+}
+
 function mouseMoveEvent(e) {
     if (canDraw) {
         draw(e.pageX, e.pageY);
     }
 }
+function touchMove(e) {
+    e.preventDefault();
+    if (canDraw) {
+        let touch = e.touches[0];
+        draw(touch.clientX, touch.clientY);
+    }
+}
+
 function mouseUpEvent() {
     canDraw = false;
 }
+function touchEnd() {
+    canDraw = false;
+}
+
+
+
 function draw(x, y) {
-    console.log('Está desenhando!');
-    console.log(`Draw: ${canDraw}`);
-    console.log(`Eraser: ${canEraser}`);
     let pointX = x - screen.offsetLeft;
     let pointY = y - screen.offsetTop;
 
@@ -86,7 +109,7 @@ function draw(x, y) {
     ctx.moveTo(mouseX, mouseY);
     ctx.lineTo(pointX, pointY);
     ctx.closePath();
-    if(canEraser) {
+    if (canEraser) {
         ctx.globalCompositeOperation = "destination-out"; //apaga o que foi desenhado
         ctx.lineWidth = 10;
     } else {
@@ -94,7 +117,7 @@ function draw(x, y) {
         ctx.strokeStyle = currentColor;
         ctx.lineWidth = 2;
     }
-    
+
     ctx.stroke();
 
     mouseX = pointX;
@@ -109,6 +132,7 @@ function clearScreen() {
 function ajustScreen() {
     let canvas = document.querySelector('.canvas');
     let canvasArea = getComputedStyle(canvas);
+    console.log(canvasArea.getPropertyValue('width'));
     screen.width = parseInt(canvasArea.getPropertyValue('width'));
     screen.height = (parseInt(canvasArea.getPropertyValue('height')) - 32);
 }
