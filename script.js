@@ -90,14 +90,12 @@ function touchMove(e) {
         draw(touch.clientX, touch.clientY);
     }
 }
-
 function mouseUpEvent() {
     canDraw = false;
 }
 function touchEnd() {
     canDraw = false;
 }
-
 
 
 function draw(x, y) {
@@ -111,7 +109,7 @@ function draw(x, y) {
     ctx.closePath();
     if (canEraser) {
         ctx.globalCompositeOperation = "destination-out"; //apaga o que foi desenhado
-        ctx.lineWidth = 10;
+        ctx.lineWidth = 20;
     } else {
         ctx.globalCompositeOperation = "source-over"
         ctx.strokeStyle = currentColor;
@@ -132,7 +130,7 @@ function clearScreen() {
 function ajustScreen() {
     let canvas = document.querySelector('.canvas');
     let canvasArea = getComputedStyle(canvas);
-    console.log(canvasArea.getPropertyValue('width'));
     screen.width = parseInt(canvasArea.getPropertyValue('width'));
-    screen.height = (parseInt(canvasArea.getPropertyValue('height')) - 32);
+    // screen.height = (parseInt(canvasArea.getPropertyValue('height')) - 32);
+    screen.height = (parseInt(canvasArea.getPropertyValue('height')));
 }

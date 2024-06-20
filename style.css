@@ -15,10 +15,10 @@ body {
     background-color: #eee;
 }
 
-.header {
+/* .header {
     height: 5rem;
     background-color: #212529;
-}
+} */
 
 .body {
     display: flex;
@@ -142,6 +142,10 @@ body {
     display: block;
 }
 
+.colorCheck {
+    display: none;
+}
+
 footer {
     margin-top: 20px;
     color: #FFF;
@@ -156,9 +160,62 @@ footer {
     .tools {
         width: 100%;
         display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
     }
 
-    /* .canvas canvas {
-        width: 100%;
+    .tools h5 {
+        padding-top: 0;
+    }
+
+    /* .colorArea {
+        text-align: center;
     } */
+
+    .color {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .colorArea {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .canvas {
+        margin: 1.5rem;
+    }
+
+    .colorCheck {
+        display: block;
+        position: relative;
+        border: none;
+        text-align: center;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -o-appearance: none;
+    }
+
+    .colorCheck::before {
+        content: '\02795';
+    }
+
+    .colorCheck:checked::before {
+        content: '\2796';
+    }
+
+    .colorCheck:not(:checked)~div {
+        display: none;
+    }
+
+    .colorCheck:checked~div {
+        position: absolute;
+        border-radius: 5px;
+        top: 10%;
+        left: 5%;
+        right: 5%;
+        /* background-color: #fff; */
+        background-color: rgba(10, 10, 10, .3);
+    }
+
 }

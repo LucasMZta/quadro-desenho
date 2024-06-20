@@ -13,9 +13,7 @@
 </head>
 
 <body>
-    <header class="header">
-
-    </header>
+    <!-- <header class="header"> </header> -->
     <section class="body">
         <div class="canvas">
             <canvas id="tela"></canvas>
@@ -24,6 +22,7 @@
         <aside class="tools">
             <div class="colorArea">
                 <h5>Cores</h5>
+                <input type="checkbox" class="colorCheck" />
                 <div>
                     <div data-color="#000000" style="background-color: #000000" class="color active"></div>
                     <div data-color="#808080" style="background-color: #808080" class="color"></div>
@@ -41,6 +40,7 @@
             </div>
             <div class="colorArea toolOptions">
                 <h5>Ferramentas</h5>
+                <input type="checkbox" class="colorCheck" />
                 <div>
                     <div class="tool pencil active" aria-label="Desenhar">
                         <i class="fa-solid fa-pencil"></i>
@@ -55,8 +55,11 @@
             </div>
             <div class="colorArea">
                 <h5>Ajustes</h5>
-                <div class="tool resize" aria-label="Reajustar Tamanho do Quadro">
-                    <i class="fa-solid fa-gear"></i>
+                <input type="checkbox" class="colorCheck" />
+                <div>
+                    <div class="tool resize" aria-label="Reajustar Tamanho do Quadro">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
                 </div>
             </div>
 
